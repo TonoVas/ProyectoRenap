@@ -12,7 +12,8 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('soloadmin',['only'=>'index']);
+        //Hola Mundo ...
+        $this->middleware('soloadmin',['only'=>'index']);
     }
     /**
      * Display a listing of the resource.

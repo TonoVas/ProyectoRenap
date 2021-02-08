@@ -3,6 +3,7 @@
 use App\Models\Solicitante;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
-});
+});*/
 
 /*Route::get('/login', function (Request $request) {
     return $request;
@@ -87,8 +88,15 @@ Route::post('/', function(Request $request) {
 });
 
 
-Route::get('/', function(Request $request) {
+/*Route::get('/', function(Request $request) {
     $dato =  Solicitante::all();
     $dato = User::all();
     return $dato;
-});
+});*/
+
+
+Route::get('user', 'App\Http\Controllers\HomeController@getUser');
+/*Route::get('/user', function($id) {
+    $dato = User::find(Auth::user() == $id);
+    return $dato;
+});*/
