@@ -17,15 +17,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
-
-Route::middleware('auth:api')->get('/login', function (Request $request) {
+Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*Route::get('/login', function (Request $request) {
+    return $request;
+});*/
+
+//Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
 //Route::post('/', [App\Http\Controllers\UserController::class, 'store'])->name('create.store');
+
+Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
+
+
 Route::post('/', function(Request $request) {
     $dato = new Solicitante();
         $Cedula = 0;
@@ -81,8 +86,9 @@ Route::post('/', function(Request $request) {
     return $dato;
 });
 
-/*Route::get('/', function(Request $request) {
+
+Route::get('/', function(Request $request) {
     $dato =  Solicitante::all();
     $dato = User::all();
     return $dato;
-});*/
+});
