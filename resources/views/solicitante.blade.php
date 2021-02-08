@@ -42,7 +42,7 @@
                     </td>
                     <td>{{$dato->email}}</td>
                     <td>{{$dato->password}}</td>
-                </tr> 
+                </tr>
                         @endforeach
                     </tbody>
                 </table>
@@ -68,12 +68,12 @@
                     <td>{{$dato->proceso}}
                         <a href="{{route('user.edit', $dato->id)}}" class="btn btn-success"> {{_('Estado')}}</a>
                     </td>
-                </tr> 
+                </tr>
                         @endforeach
                     </tbody>
                 </table>
                 </div>
-                
+
                 <form method="GET" action="{{ route('home') }}" >
                     <div class="form-group row justify-content-center" >
                         <div class="col-md-6 offset-md-4">
@@ -93,3 +93,4 @@
     </div>
 </div>
 @endsection
+

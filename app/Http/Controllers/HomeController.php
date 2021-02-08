@@ -30,10 +30,10 @@ class HomeController extends Controller
     }
     public function getUser()
     {
-       
+
         return view('user');
     }
-    
+
     public function store( Request $request)
     {
       /*  $dato = new Solicitante();
@@ -52,8 +52,8 @@ class HomeController extends Controller
         $dato->email = $request->email ;
         $password = "";
         $password = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"),rand(0,61),8);
-        
-        
+
+
         $dato = Solicitante::create([
             'CUI'=>$dato['CUI'],
             'FechaDeNacimineto'=>$dato['FechaDeNacimineto'],
@@ -67,7 +67,7 @@ class HomeController extends Controller
             'email'=>$dato['email'],
             'password'=>$password,
         ]);
-            
+
         $dato = new User();
         $dato->name = $request->name ;
         $dato->email = $request->email ;
@@ -82,8 +82,8 @@ class HomeController extends Controller
     public function estado($estado)
     {
         $estado = User::find($estado);
-        return view( 'user', compact('estado')); 
-        
+        return view( 'user', compact('estado'));
+
     }
-   
+
 }

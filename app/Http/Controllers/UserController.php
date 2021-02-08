@@ -12,7 +12,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('soloadmin',['only'=>'index']);
+        //$this->middleware('soloadmin',['only'=>'index']);
     }
     /**
      * Display a listing of the resource.
@@ -26,6 +26,7 @@ class UserController extends Controller
         $data = User::all();
 
         return view('solicitante', compact('dato', 'data'));
+
     }
 
     /**
@@ -170,7 +171,11 @@ class UserController extends Controller
             'fullacces'=>$fullacces,
             'estado'=>$estado,
         ]);
-       return redirect()->route( 'create', compact('dato'))->with('success', 'Guardado con éxito');
+
+
+
+        //return $dato;
+        return redirect()->route( 'create')->with('success', 'Guardado con éxito');
     }
 
     /**

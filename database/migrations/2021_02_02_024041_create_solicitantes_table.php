@@ -15,17 +15,17 @@ class CreateSolicitantesTable extends Migration
     {
         Schema::create('solicitantes', function (Blueprint $table) {
             $table->id();
-            $table->string('Cedula')->unique();
-            $table->string('FechaDeNacimineto');
-            $table->string('name');
-            $table->string('Apellido');
-            $table->string('Direccion');
-            $table->double('Telefono');
-            $table->string('Departamento');
-            $table->string('Municipio');
-            $table->string('Fotografia');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('Cedula')->unique()->nullable();
+            $table->string('FechaDeNacimineto')->nullable();
+            $table->string('name')->nullable();
+            $table->string('Apellido')->nullable();
+            $table->string('Direccion')->nullable();
+            $table->double('Telefono')->nullable();
+            $table->string('Departamento')->nullable();
+            $table->string('Municipio')->nullable();
+            $table->string('Fotografia')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('password')->nullable();
             $table->timestamps();
         });
     }

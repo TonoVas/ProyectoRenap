@@ -25,7 +25,7 @@
                         <div class="form-group row">
                             <label for="FechaDeNacimineto" class="col-md-4 col-form-label text-md-right">{{ __('Fecha De Nacimineto:') }}</label>
                             <div class="col-md-6">
-                            <input type="date" name="FechaDeNacimineto" id="FechaDeNacimineto" required placeholder="Introduce una fecha" max="2003-01-01"/>
+                            <input type="date" name="FechaDeNacimineto" id="FechaDeNacimineto" required placeholder="Introduce una fecha" max="2003-02-05"/>
                             </div>
                         </div>
                         <br>
