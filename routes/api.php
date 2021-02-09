@@ -31,72 +31,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('login', 'App\Http\Controllers\Auth\LoginController@login');
 
+Route::post('/', 'App\Http\Controllers\ApiController@store');
 
-Route::post('/', function(Request $request) {
-    $dato = new Solicitante();
-        $Cedula = 0;
-        $Cedula = substr(str_shuffle("1234567890"),0,14);
-        $dato->FechaDeNacimineto = $request->FechaDeNacimineto ;
-        $dato->name = $request->name ;
-        $dato->Apellido = $request->Apellido ;
-        $dato->Direccion = $request->Direccion ;
-        $dato->Telefono = $request->Telefono ;
-        $dato->Departamento = $request->Departamento ;
+Route::get('/user', 'App\Http\Controllers\ApiController@index');
 
-
-
-
-        $dato->Municipio = $request->Municipio ;
-        $dato->Fotografia = $request->Fotografia ;
-        if($request->hasFile('Fotografia')){
-            $dato['Fotografia']=$request->file('Fotografia')->store('uploads','public');
-       }
-        $dato->email = $request->email ;
-        $password = "";
-        $password = substr(str_shuffle("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"),rand(0,61),8);
-
-
-        $dato = Solicitante::create([
-            'Cedula'=>$Cedula,
-            'FechaDeNacimineto'=>$dato['FechaDeNacimineto'],
-            'name'=>$dato['name'],
-            'Apellido'=>$dato['Apellido'],
-            'Direccion'=>$dato['Direccion'],
-            'Telefono'=>$dato['Telefono'],
-            'Departamento'=>$dato['Departamento'],
-            'Municipio'=>$dato['Municipio'],
-            'Fotografia'=>$dato['Fotografia'],
-            'email'=>$dato['email'],
-            'password'=>$password,
-        ]);
-
-        $dato = new User();
-        $dato->name = $request->name ;
-        $dato->email = $request->email ;
-        $passwordcrypt = Hash::make($password);
-        $fullacces = "no";
-        $estado=0;
-        $dato = User::create([
-            'name'=>$dato['name'],
-            'email'=>$dato['email'],
-            'password'=>$passwordcrypt,
-            'fullacces'=>$fullacces,
-            'estado'=>$estado,
-        ]);
-
-    return $dato;
-});
-
-
-/*Route::get('/', function(Request $request) {
-    $dato =  Solicitante::all();
-    $dato = User::all();
-    return $dato;
-});*/
-
-
-Route::get('user', 'App\Http\Controllers\HomeController@getUser');
-/*Route::get('/user', function($id) {
-    $dato = User::find(Auth::user() == $id);
-    return $dato;
-});*/
